@@ -1,0 +1,36 @@
+{
+  "presets": ["next/babel", ["env", { "modules": false }]],
+  "plugins": [
+    ["emotion", { "sourceMap": true }],
+    "lodash",
+    [
+      "module-resolver",
+      {
+        "root": ["src"]
+      }
+    ],
+    "transform-class-properties"
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        ["emotion", { "sourceMap": false }],
+        "lodash",
+        [
+          "module-resolver",
+          {
+            "root": ["src"]
+          }
+        ],
+        "transform-class-properties"
+      ]
+    },
+    "test": {
+      "plugins": [
+        ["emotion", { "sourceMap": true }],
+        "lodash",
+        "transform-class-properties"
+      ]
+    }
+  }
+}
