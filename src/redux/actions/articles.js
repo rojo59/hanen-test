@@ -18,7 +18,7 @@ export const {
 });
 
 export function fetchArticles() {
-  return axios.get('/articles.json');
+  return axios.get('./articles.json');
 }
 export function getArticles(artist) {
   return async function(dispatch) {

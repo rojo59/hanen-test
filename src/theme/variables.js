@@ -18,10 +18,15 @@ export const formHeader = '#e0f1fa';
 export const buttonColour = '#f2f2f2';
 
 //- --------------------------------------------------------
-//-  Forms
+//-  Sizes
 //- --------------------------------------------------------
 
 export const borderRadius = '5px';
+export const headerHeight = '50px';
+
+//- --------------------------------------------------------
+//-  Forms
+//- --------------------------------------------------------
 
 export const forms = css`
   border: solid 1px ${borderColour};

@@ -32,6 +32,24 @@ const Root = styled('article')`
     }
   }
 
+  @media (orientation: landscape) {
+    .article-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .article-tags {
+      margin-left: 10px;
+    }
+
+    .article-category {
+      flex-grow: 2;
+      text-align: right;
+    }
+  }
+
   @media ${media.sm} {
     .article-head {
       display: flex;

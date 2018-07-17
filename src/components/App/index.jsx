@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'react-emotion';
-import { media } from '../../theme/variables';
+import { headerHeight, media } from '../../theme/variables';
 
 // Containers
 import HeaderContainer from '../../containers/HeaderContainer';
@@ -12,6 +12,7 @@ const Root = styled('div')`
   width: 100vw;
   > div {
     width: 100%;
+    margin-top: ${headerHeight};
     padding: 25px;
   }
   .forms-wrapper {
