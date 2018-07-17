@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
-import { articleHeadColour, media } from '../../theme/variables';
+import { articleHeadColour, borderRadius, media } from '../../theme/variables';
 
 let categoryColours = {
   bigfoot: '#239652',
@@ -20,7 +20,7 @@ const Root = styled('article')`
 
   .article-head {
     background-color: ${articleHeadColour};
-    border-radius: 5px;
+    border-radius: ${borderRadius};
   }
 
   .article-name {
@@ -34,7 +34,7 @@ const Root = styled('article')`
       display: inline-block;
       width: 120px;
       padding: 5px 0;
-      border-radius: 5px;
+      border-radius: ${borderRadius};
     }
   }
 

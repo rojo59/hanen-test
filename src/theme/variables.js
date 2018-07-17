@@ -16,15 +16,18 @@ export const secondaryColour = white;
 export const articleHeadColour = '#f2f2f2';
 export const borderColour = '#e0e0e0';
 export const formHeader = '#e0f1fa';
+export const buttonColour = '#f2f2f2';
 
 //- --------------------------------------------------------
 //-  Forms
 //- --------------------------------------------------------
 
+export const borderRadius = '5px';
+
 export const forms = css`
   border: solid 1px ${borderColour};
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: ${borderRadius};
   .form-header,
   .form-body {
     padding: 10px 20px;
@@ -37,13 +40,22 @@ export const forms = css`
     input {
       width: 100%;
     }
+
     > div > input {
       border: solid 1px ${borderColour};
       margin: 5px 0 20px;
       padding: 5px;
     }
+
     section {
       margin: 5px 0 20px;
+    }
+
+    button {
+      background-color: ${buttonColour};
+      padding: 10px 20px;
+      border-radius: ${borderRadius};
+      border: none;
     }
   }
 `;

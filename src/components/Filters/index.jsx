@@ -13,7 +13,7 @@ export default class Filters extends Component {
     return {
       name: PropTypes.string,
       tags: PropTypes.string,
-      dispatchFilterArticles: PropTypes.func.isRequired,
+      dispatchSetFilters: PropTypes.func.isRequired,
     };
   }
 
@@ -61,9 +61,9 @@ export default class Filters extends Component {
   }
 
   filterArticles(value, filterBy) {
-    const { dispatchFilterArticles } = this.props;
+    const { dispatchSetFilters } = this.props;
     console.log('filterArticles:', value, filterBy);
-    dispatchFilterArticles(value, filterBy);
+    dispatchSetFilters(value, filterBy);
   }
 
   render() {

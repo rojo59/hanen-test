@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
+import { map } from 'lodash';
 
 // Components
 import Dropdown from '../../components/Dropdown';
@@ -14,7 +15,14 @@ const Root = styled('form')`
 export default class ArticleForm extends Component {
   static get propTypes() {
     return {
+      categories: PropTypes.array.isRequired,
       dispatchAddArticle: PropTypes.func.isRequired,
+    };
+  }
+
+  static get defaultProps() {
+    return {
+      categories: [],
     };
   }
 
@@ -53,6 +61,8 @@ export default class ArticleForm extends Component {
   }
 
   render() {
+    const { categories } = this.props;
+    console.log('categories:', categories);
     return (
       <Root>
         <div className="form-header">Add an Article</div>
@@ -94,13 +104,19 @@ export default class ArticleForm extends Component {
             <label htmlFor="articleCategory">Category</label>
             <Dropdown
               name="articleCategory"
-              options={[
-                { value: 'bigfoot', label: 'Bigfoot' },
-                { value: 'nessy', label: 'Nessy' },
-                { value: 'jackalope', label: 'Jackalope' },
-              ]}
+              options={map(categories, category => {
+                return {
+                  value: category,
+                  label: category,
+                };
+              })}
               onChange={this.onCategoryChange}
             />
+          </div>
+          <div>
+            <button className="btn" type="submit" onClick={this.addArticle}>
+              Submit
+            </button>
           </div>
         </div>
       </Root>
