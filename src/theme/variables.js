@@ -1,3 +1,5 @@
+import { css } from 'emotion';
+
 //- --------------------------------------------------------
 //-  Fonts
 //- --------------------------------------------------------
@@ -12,6 +14,39 @@ export const black = '#000';
 export const primaryColour = '#C7893E';
 export const secondaryColour = white;
 export const articleHeadColour = '#f2f2f2';
+export const borderColour = '#e0e0e0';
+export const formHeader = '#e0f1fa';
+
+//- --------------------------------------------------------
+//-  Forms
+//- --------------------------------------------------------
+
+export const forms = css`
+  border: solid 1px ${borderColour};
+  font-weight: bold;
+  border-radius: 5px;
+  .form-header,
+  .form-body {
+    padding: 10px 20px;
+  }
+  .form-header {
+    background-color: ${formHeader};
+  }
+  .form-body {
+    label,
+    input {
+      width: 100%;
+    }
+    > div > input {
+      border: solid 1px ${borderColour};
+      margin: 5px 0 20px;
+      padding: 5px;
+    }
+    section {
+      margin: 5px 0 20px;
+    }
+  }
+`;
 
 //- --------------------------------------------------------
 //-  Media Queries

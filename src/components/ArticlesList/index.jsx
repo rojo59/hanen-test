@@ -28,7 +28,7 @@ export default class ArticlesList extends Component {
 
   static get defaultProps() {
     return {
-      aricles: [],
+      articles: [],
       isFetching: false,
     };
   }
@@ -36,7 +36,7 @@ export default class ArticlesList extends Component {
   componentDidMount() {
     const { articles, isFetching, error, dispatchGetArticles } = this.props;
 
-    if (!isFetching && articles.length === 0 && !error) {
+    if (!isFetching && articles && articles.length === 0 && !error) {
       dispatchGetArticles();
     }
   }
@@ -56,7 +56,7 @@ export default class ArticlesList extends Component {
           <p>There was an error loading the articles.</p>
         </Root>
       );
-    } else if (articles.length > 0) {
+    } else if (articles && articles.length > 0) {
       return (
         <Root>
           {map(articles, article => {

@@ -5,10 +5,16 @@ export const {
   getArticlesRequest,
   getArticlesSuccess,
   getArticlesError,
+  addArticle,
+  setFilters,
+  clearFilters,
 } = createActions({
   GET_ARTICLES_REQUEST: [() => null, () => ({ isFetching: true })],
   GET_ARTICLES_SUCCESS: [response => response, () => ({ isFetching: false })],
   GET_ARTICLES_ERROR: [error => error, () => ({ isFetching: false })],
+  ADD_ARTICLE: response => response,
+  SET_FILTERS: response => response,
+  CLEAR_FILTERS: response => response,
 });
 
 export function fetchArticles() {

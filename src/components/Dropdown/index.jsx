@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Select from 'react-select';
+import { Creatable } from 'react-select';
 import styled from 'react-emotion';
 
 const Root = styled('section')`
   width: 100%;
-  max-width: 400px;
 `;
 
 export default class DropDown extends Component {
@@ -52,12 +51,12 @@ export default class DropDown extends Component {
     const value = currentOption && currentOption.value;
     return (
       <Root>
-        <Select
+        <Creatable
           name={name}
           value={value}
           disabled={disabled}
           clearable={false}
-          placeholder={`Please select a ${name}`}
+          placeholder=""
           onChange={this.changeOption}
           options={options}
         />
