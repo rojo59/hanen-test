@@ -12,7 +12,10 @@ import {
 
 const defaultState = Map({
   articles: List(),
-  filters: List(),
+  filters: Map({
+    name: '',
+    tags: '',
+  }),
   categoryColours: Map({
     bigfoot: '#239652',
     nessy: '#228fb5',
@@ -87,11 +90,7 @@ export default handleActions(
       });
     },
     [setFilters](state, { payload }) {
-      if (payload && payload.data) {
-        return state.set('filters', payload.data.split(','));
-      } else {
-        return state.set('filters', List());
-      }
+      return state.set('filters', Map(payload));
     },
     [clearFilters](state) {
       return state.set('filters', List());

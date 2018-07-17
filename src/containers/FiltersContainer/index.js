@@ -15,8 +15,13 @@ const mapStateToProps = function(state) {
 
 const mapDispatchToProps = function(dispatch) {
   return {
-    dispatchSetFilters: filters => {
-      dispatch(setFilters(filters));
+    dispatchSetFilters: (name, tags) => {
+      dispatch(
+        setFilters({
+          name: name,
+          tags: tags,
+        })
+      );
     },
   };
 };

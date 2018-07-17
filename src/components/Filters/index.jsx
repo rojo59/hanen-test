@@ -39,29 +39,17 @@ export default class Filters extends Component {
       tags: '',
     };
 
-    this.onKeyDown = this.onKeyDown.bind(this);
+    this.onChange = this.onChange.bind(this);
     this.filterArticles = this.filterArticles.bind(this);
   }
 
-  onKeyDown(e) {
-    if (e.keyCode === 13) {
-      e.preventDefault();
-      switch (e.currentTarget) {
-        case 'name':
-          this.filterArticles(this.filterByName.value, 'name');
-          break;
-        case 'tag':
-          this.filterArticles(this.filterByTags.value, 'tag');
-          break;
-        default:
-          return;
-      }
-    }
+  onChange() {
+    this.filterArticles();
   }
 
-  filterArticles(value, filterBy) {
+  filterArticles() {
     const { dispatchSetFilters } = this.props;
-    dispatchSetFilters(value, filterBy);
+    dispatchSetFilters(this.filterByName.value, this.filterByTags.value);
   }
 
   render() {
@@ -79,7 +67,7 @@ export default class Filters extends Component {
               type="text"
               placeholder=""
               ref={filterByName => (this.filterByName = filterByName)}
-              onKeyDown={this.onKeyDown}
+              onChange={this.onChange}
             />
           </div>
           <div>
@@ -90,7 +78,7 @@ export default class Filters extends Component {
               type="text"
               placeholder=""
               ref={filterByTags => (this.filterByTags = filterByTags)}
-              onKeyDown={this.onKeyDown}
+              onChange={this.onChange}
             />
           </div>
         </div>

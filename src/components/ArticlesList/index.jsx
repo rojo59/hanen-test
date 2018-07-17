@@ -45,6 +45,8 @@ export default class ArticlesList extends Component {
   render() {
     const { articles, categoryColours, isFetching, error } = this.props;
 
+    console.log('???????', articles);
+
     if (isFetching) {
       return (
         <Root>

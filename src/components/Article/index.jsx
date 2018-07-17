@@ -20,6 +20,7 @@ const Root = styled('article')`
   .article-name {
     font-size: 1.4rem;
     font-weight: bold;
+    flex-shrink: 0;
   }
 
   .article-category {

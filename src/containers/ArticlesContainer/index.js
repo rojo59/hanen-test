@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { filter } from 'lodash';
 
 import { getArticles } from '../../redux/actions/articles';
 
@@ -8,10 +9,26 @@ import ArticlesList from '../../components/ArticlesList';
 const mapStateToProps = function(state) {
   const { articles } = state;
 
+  let filteredArticles = articles.get('articles').toJS();
+  const filters = articles.get('filters').toJS();
+  if (filters.name !== '') {
+    filteredArticles = filter(filteredArticles, article => {
+      return article.name.toLowerCase().includes(filters.name.toLowerCase());
+    });
+  }
+  if (filters.tags !== '') {
+    filteredArticles = filter(filteredArticles, article => {
+      return article.tags.toLowerCase().includes(filters.tags.toLowerCase());
+      // return (
+      //   differenceBy(
+      //     filters.tags.toLowerCase().split(','),
+      //     article.tags.toLowerCase().split(',')
+      //   ).length === 0
+      // );
+    });
+  }
   return {
-    articles: articles.get('articles').size
-      ? articles.get('articles').toJS()
-      : [],
+    articles: filteredArticles.length > 0 ? filteredArticles : [],
     error: articles.get('error'),
     categoryColours: articles.get('categoryColours').toJS(),
     isFetching: articles.getIn(['_metadata', 'isFetching']),
