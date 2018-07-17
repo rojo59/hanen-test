@@ -3,19 +3,25 @@ import styled from 'react-emotion';
 import { media } from '../../theme/variables';
 
 // Containers
+import HeaderContainer from '../../containers/HeaderContainer';
 import ArticlesContainer from '../../containers/ArticlesContainer';
 import FiltersContainer from '../../containers/FiltersContainer';
 import ArticleFormContainer from '../../containers/ArticleFormContainer';
 
 const Root = styled('div')`
   width: 100vw;
-  padding: 25px;
+  > div {
+    width: 100%;
+    padding: 25px;
+  }
   .forms-wrapper {
     margin: 25px 0 0;
   }
   @media ${media.md} {
-    display: flex;
-    padding: 50px;
+    > div {
+      display: flex;
+      padding: 50px;
+    }
     .articles-wrapper {
       width: 60%;
     }
@@ -38,12 +44,15 @@ export default class App extends Component {
   render() {
     return (
       <Root>
-        <div className="articles-wrapper">
-          <ArticlesContainer />
-        </div>
-        <div className="forms-wrapper">
-          <FiltersContainer />
-          <ArticleFormContainer />
+        <HeaderContainer />
+        <div>
+          <div className="articles-wrapper">
+            <ArticlesContainer />
+          </div>
+          <div className="forms-wrapper">
+            <FiltersContainer />
+            <ArticleFormContainer />
+          </div>
         </div>
       </Root>
     );

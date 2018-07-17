@@ -90,10 +90,17 @@ export default handleActions(
       });
     },
     [setFilters](state, { payload }) {
+      console.log('setFilters:', payload);
       return state.set('filters', Map(payload));
     },
     [clearFilters](state) {
-      return state.set('filters', List());
+      return state.set(
+        'filters',
+        Map({
+          name: '',
+          tags: '',
+        })
+      );
     },
   },
   defaultState

@@ -20,7 +20,6 @@ const Root = styled('article')`
   .article-name {
     font-size: 1.4rem;
     font-weight: bold;
-    flex-shrink: 0;
   }
 
   .article-category {
@@ -37,7 +36,8 @@ const Root = styled('article')`
     .article-head {
       display: flex;
       align-items: flex-end;
-      justify-content: space-evenly;
+      justify-content: flex-start;
+      flex-wrap: wrap;
     }
 
     .article-tags {

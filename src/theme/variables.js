@@ -11,8 +11,7 @@ export const bodyFontFamily = 'Helvetica, sans-serif;';
 //- --------------------------------------------------------
 export const white = '#FFF';
 export const black = '#000';
-export const primaryColour = '#C7893E';
-export const secondaryColour = white;
+export const hoverColour = '#C7893E';
 export const articleHeadColour = '#f2f2f2';
 export const borderColour = '#e0e0e0';
 export const formHeader = '#e0f1fa';

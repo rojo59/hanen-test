@@ -24,7 +24,11 @@ export default class Filters extends Component {
   }
 
   static getDerivedStateFromProps(props) {
-    const { name, tags } = props;
+    const {
+      filters: { name, tags },
+    } = props;
+
+    console.log('PROPS:', name, tags);
     return {
       name,
       tags,
@@ -53,7 +57,9 @@ export default class Filters extends Component {
   }
 
   render() {
-    // const { name, tags } = this.state;
+    const { name, tags } = this.state;
+
+    console.log('STATE:', name, tags);
 
     return (
       <Root>
@@ -65,6 +71,7 @@ export default class Filters extends Component {
               id="filterByName"
               name="filterByName"
               type="text"
+              value={name}
               placeholder=""
               ref={filterByName => (this.filterByName = filterByName)}
               onChange={this.onChange}
@@ -76,6 +83,7 @@ export default class Filters extends Component {
               id="filterByTags"
               name="filterByTags"
               type="text"
+              value={tags}
               placeholder=""
               ref={filterByTags => (this.filterByTags = filterByTags)}
               onChange={this.onChange}
