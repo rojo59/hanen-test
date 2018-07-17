@@ -13,6 +13,11 @@ import {
 const defaultState = Map({
   articles: List(),
   filters: List(),
+  categoryColours: Map({
+    bigfoot: '#239652',
+    nessy: '#228fb5',
+    jackalope: '#f99c32',
+  }),
   _metadata: Map({
     isFetching: false,
   }),
@@ -50,8 +55,20 @@ export default handleActions(
       }
     },
     [addArticle](state, { payload }) {
-      if (payload && payload.data) {
-        return state.set('articles', state.get('articles').push(payload.data));
+      if (payload) {
+        let article = payload;
+        article.id = state.get('articles').size + 1;
+        let categoryColours = state.get('categoryColours').toJS();
+        const category = article.category.toLowerCase();
+        if (!categoryColours[category]) {
+          categoryColours[category] = `#${(
+            (Math.random() * 0xffffff) <<
+            0
+          ).toString(16)}`;
+        }
+        return state
+          .set('articles', state.get('articles').push(Map(article)))
+          .set('categoryColours', Map(categoryColours));
       } else {
         return state;
       }

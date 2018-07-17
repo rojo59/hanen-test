@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
-import { createInputFiles } from '../../../node_modules/typescript';
 
 // Styles
 const Root = styled('form')`
@@ -62,7 +61,6 @@ export default class Filters extends Component {
 
   filterArticles(value, filterBy) {
     const { dispatchSetFilters } = this.props;
-    console.log('filterArticles:', value, filterBy);
     dispatchSetFilters(value, filterBy);
   }
 

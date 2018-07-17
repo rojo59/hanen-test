@@ -13,6 +13,7 @@ const mapStateToProps = function(state) {
       ? articles.get('articles').toJS()
       : [],
     error: articles.get('error'),
+    categoryColours: articles.get('categoryColours').toJS(),
     isFetching: articles.getIn(['_metadata', 'isFetching']),
   };
 };

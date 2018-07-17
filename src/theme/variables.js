@@ -37,18 +37,23 @@ export const forms = css`
   }
   .form-body {
     label,
-    input {
+    input,
+    textarea {
       width: 100%;
     }
 
-    > div > input {
-      border: solid 1px ${borderColour};
-      margin: 5px 0 20px;
-      padding: 5px;
+    > div {
+      margin-bottom: 20px;
+      > input,
+      > textarea {
+        border: solid 1px ${borderColour};
+        margin-top: 5px;
+        padding: 5px;
+      }
     }
 
     section {
-      margin: 5px 0 20px;
+      margin-top: 5px;
     }
 
     button {
@@ -57,6 +62,11 @@ export const forms = css`
       border-radius: ${borderRadius};
       border: none;
     }
+  }
+
+  .form-error {
+    color: red;
+    font-size: 0.7rem;
   }
 `;
 

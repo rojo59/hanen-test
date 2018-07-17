@@ -38,6 +38,19 @@ export default class DropDown extends Component {
     this.changeOption = this.changeOption.bind(this);
   }
 
+  get value() {
+    return this.state.currentOption.value;
+  }
+
+  clear() {
+    this.setState({
+      currentOption: {
+        value: '',
+        label: '',
+      },
+    });
+  }
+
   changeOption(option) {
     const { onChange } = this.props;
     this.setState({ currentOption: option });

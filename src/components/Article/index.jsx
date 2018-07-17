@@ -3,12 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { articleHeadColour, borderRadius, media } from '../../theme/variables';
 
-let categoryColours = {
-  bigfoot: '#239652',
-  nessy: '#228fb5',
-  jackalope: '#f99c32',
-};
-
 // Styles
 const Root = styled('article')`
   box-shadow: 2px 2px 5px 0px rgba(194, 194, 194, 1);
@@ -56,7 +50,7 @@ const Root = styled('article')`
   }
 `;
 
-const Article = ({ name, description, category, tags }) => {
+const Article = ({ name, description, category, tags, categoryColours }) => {
   return (
     <Root data-component="Article">
       <div className="article-head">
@@ -82,6 +76,7 @@ Article.propTypes = {
   description: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   tags: PropTypes.string.isRequired,
+  categoryColours: PropTypes.object.isRequired,
 };
 
 export default Article;

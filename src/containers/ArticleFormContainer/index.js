@@ -9,6 +9,9 @@ const mapStateToProps = function(state) {
   const { articles } = state;
 
   return {
+    articles: articles.get('articles').size
+      ? articles.get('articles').toJS()
+      : [],
     categories: sortedUniq(map(articles.get('articles').toJS(), 'category')),
   };
 };

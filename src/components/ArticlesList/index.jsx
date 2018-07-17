@@ -20,6 +20,7 @@ export default class ArticlesList extends Component {
   static get propTypes() {
     return {
       articles: PropTypes.array.isRequired,
+      categoryColours: PropTypes.object.isRequired,
       error: PropTypes.object,
       isFetching: PropTypes.bool.isRequired,
       dispatchGetArticles: PropTypes.func.isRequired,
@@ -42,7 +43,7 @@ export default class ArticlesList extends Component {
   }
 
   render() {
-    const { articles, isFetching, error } = this.props;
+    const { articles, categoryColours, isFetching, error } = this.props;
 
     if (isFetching) {
       return (
@@ -61,7 +62,13 @@ export default class ArticlesList extends Component {
         <Root>
           {map(articles, article => {
             const { id, ...articleProps } = article;
-            return <Article key={id} {...articleProps} />;
+            return (
+              <Article
+                key={id}
+                categoryColours={categoryColours}
+                {...articleProps}
+              />
+            );
           })}
         </Root>
       );
