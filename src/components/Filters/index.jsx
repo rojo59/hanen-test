@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
+import { createInputFiles } from '../../../node_modules/typescript';
 
 // Styles
 const Root = styled('form')`
@@ -75,8 +76,9 @@ export default class Filters extends Component {
           <div>
             <label htmlFor="filterByName">Filter by name</label>
             <input
-              type="text"
+              id="filterByName"
               name="filterByName"
+              type="text"
               placeholder=""
               ref={filterByName => (this.filterByName = filterByName)}
               onKeyDown={this.onKeyDown}
@@ -85,7 +87,9 @@ export default class Filters extends Component {
           <div>
             <label htmlFor="filterByTags">Filter by tags</label>
             <input
+              id="filterByTags"
               name="filterByTags"
+              type="text"
               placeholder=""
               ref={filterByTags => (this.filterByTags = filterByTags)}
               onKeyDown={this.onKeyDown}

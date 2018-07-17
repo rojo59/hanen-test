@@ -60,8 +60,9 @@ export default class ArticleForm extends Component {
           <div>
             <label htmlFor="articleName">Name</label>
             <input
-              type="text"
+              id="articleName"
               name="articleName"
+              type="text"
               placeholder=""
               ref={articleName => (this.articleName = articleName)}
               onKeyDown={this.onKeyDown}
@@ -70,7 +71,9 @@ export default class ArticleForm extends Component {
           <div>
             <label htmlFor="articleDesc">Description</label>
             <input
+              id="articleDesc"
               name="articleDesc"
+              type="text"
               placeholder=""
               ref={articleDesc => (this.articleDesc = articleDesc)}
               onKeyDown={this.onKeyDown}
@@ -79,7 +82,9 @@ export default class ArticleForm extends Component {
           <div>
             <label htmlFor="articleTags">Tags</label>
             <input
+              id="articleTags"
               name="articleTags"
+              type="text"
               placeholder=""
               ref={articleTags => (this.articleTags = articleTags)}
               onKeyDown={this.onKeyDown}

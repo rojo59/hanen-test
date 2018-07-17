@@ -52,6 +52,7 @@ export default class DropDown extends Component {
     return (
       <Root>
         <Creatable
+          id={name}
           name={name}
           value={value}
           disabled={disabled}
