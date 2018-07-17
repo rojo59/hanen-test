@@ -11,6 +11,7 @@ export const white = '#FFF';
 export const black = '#000';
 export const primaryColour = '#C7893E';
 export const secondaryColour = white;
+export const articleHeadColour = '#f2f2f2';
 
 //- --------------------------------------------------------
 //-  Media Queries

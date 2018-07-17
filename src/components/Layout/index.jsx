@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import classNames from 'classnames';
 import { ThemeProvider } from 'emotion-theming';
 import applyCssNormalize from '../../theme/normalize';
 import applyGlobalStyles from '../../theme/globals';

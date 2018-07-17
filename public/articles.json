@@ -1,1 +1,28 @@
-{}
+{
+  "articles": [
+    {
+      "id": "0001",
+      "name": "Bigfoot Afoot",
+      "description":
+        "In North American folklore, Bigfoot or Sasquatch is a hairy, upright-walking, ape-like being who reportedly dwells in the wilderness and leaves behind large footprints. Strongly associated with the Pacific Northwest (particularly Washington state and British Columbia), individuals claim to see the creature across North America. Over the years, the creature has inspired numerous commercial ventures and hoaxes.",
+      "category": "Bigfoot",
+      "tags": "True stories, forest"
+    },
+    {
+      "id": "0002",
+      "name": "Lochness Sighted",
+      "description":
+        "In Scottish folklore, the Loch Ness Monster or Nessie is a creature said to inhabit Loch Ness in the Scottish Highlands. It is often described as large in size with a long neck and one or more humps protruding from the water. Popular interest and belief in the creature has varied since it was brought to worldwide attention in 1933. Evidence of its existence is anecdotal, with a few disputed photographs and sonar readings.",
+      "category": "Nessy",
+      "tags": "Sightings, lakes"
+    },
+    {
+      "id": "0003",
+      "name": "Jackalopes Everywhere",
+      "description":
+        "In American folklore, a jackalope is a fearsome critter described as a jackrabbit with antelope horns. The word \"jackalope\" is a portmanteau of \"jackrabbit\" and \"antelope\", although the jackrabbit is a hare and not a rabbit. Many jackalope taxidermy mounts, including the original, are made with deer antlers.",
+      "category": "Jackalope",
+      "tags": "Rabbits, cities"
+    }
+  ]
+}

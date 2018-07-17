@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { map } from 'lodash-es';
+import { map } from 'lodash';
+import styled from 'react-emotion';
+
+// Components
+import Article from '../../components/Article';
+
+// Styles
+const Root = styled('div')`
+  [data-component='Article'] {
+    margin-bottom: 30px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+`;
 
 export default class ArticlesList extends Component {
   static get propTypes() {
@@ -31,21 +45,32 @@ export default class ArticlesList extends Component {
     const { articles, isFetching, error } = this.props;
 
     if (isFetching) {
-      return <div>Loading Articles</div>;
+      return (
+        <Root>
+          <p>Loading Articles</p>
+        </Root>
+      );
     } else if (!isFetching && error) {
-      return <p>There was an error loading the articles.</p>;
+      return (
+        <Root>
+          <p>There was an error loading the articles.</p>
+        </Root>
+      );
     } else if (articles.length > 0) {
       return (
-        <div>
-          <ul>
-            {map(articles, (article, key) => {
-              return <li key={key} />;
-            })}
-          </ul>
-        </div>
+        <Root>
+          {map(articles, article => {
+            const { id, ...articleProps } = article;
+            return <Article key={id} {...articleProps} />;
+          })}
+        </Root>
       );
     } else {
-      return <div>There are currently no articles.</div>;
+      return (
+        <Root>
+          <p>There are currently no articles.</p>
+        </Root>
+      );
     }
   }
 }
