@@ -20,11 +20,18 @@ export const {
 export function fetchArticles() {
   return axios.get('./articles.json');
 }
-export function getArticles(artist) {
-  return async function(dispatch) {
-    dispatch(getArticlesRequest());
-    return fetchArticles(artist)
-      .then(response => dispatch(getArticlesSuccess(response)))
-      .catch(error => dispatch(getArticlesError(error)));
-  };
+
+export function getArticles() {
+  if (localStorage.getItem('hanen-articles')) {
+    return getArticlesSuccess(
+      JSON.parse(localStorage.getItem('hanen-articles'))
+    );
+  } else {
+    return async function(dispatch) {
+      dispatch(getArticlesRequest());
+      return fetchArticles()
+        .then(response => dispatch(getArticlesSuccess(response)))
+        .catch(error => dispatch(getArticlesError(error)));
+    };
+  }
 }

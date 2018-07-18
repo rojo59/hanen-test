@@ -19,12 +19,6 @@ const mapStateToProps = function(state) {
   if (filters.tags !== '') {
     filteredArticles = filter(filteredArticles, article => {
       return article.tags.toLowerCase().includes(filters.tags.toLowerCase());
-      // return (
-      //   differenceBy(
-      //     filters.tags.toLowerCase().split(','),
-      //     article.tags.toLowerCase().split(',')
-      //   ).length === 0
-      // );
     });
   }
   return {

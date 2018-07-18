@@ -28,7 +28,6 @@ export default class Filters extends Component {
       filters: { name, tags },
     } = props;
 
-    console.log('PROPS:', name, tags);
     return {
       name,
       tags,
@@ -47,6 +46,14 @@ export default class Filters extends Component {
     this.filterArticles = this.filterArticles.bind(this);
   }
 
+  componentDidMount() {
+    const { dispatchSetFilters } = this.props;
+    if (localStorage.getItem('hanen-filters')) {
+      const storedFilters = JSON.parse(localStorage.getItem('hanen-filters'));
+      dispatchSetFilters(storedFilters.name, storedFilters.tags);
+    }
+  }
+
   onChange() {
     this.filterArticles();
   }
@@ -58,8 +65,6 @@ export default class Filters extends Component {
 
   render() {
     const { name, tags } = this.state;
-
-    console.log('STATE:', name, tags);
 
     return (
       <Root>

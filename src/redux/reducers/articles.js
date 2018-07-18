@@ -44,11 +44,18 @@ export default handleActions(
       }
     ) {
       if (payload && payload.data) {
-        return state.set('articles', fromJS(payload.data)).mergeDeep({
-          _metadata: Map({
-            isFetching: isFetching,
-          }),
-        });
+        localStorage.setItem('hanen-articles', JSON.stringify(payload));
+        const categoryColours = localStorage.getItem('hanen-colours')
+          ? Map(JSON.parse(localStorage.getItem('hanen-colours')))
+          : state.get('categoryColours');
+        return state
+          .set('articles', fromJS(payload.data))
+          .set('categoryColours', categoryColours)
+          .mergeDeep({
+            _metadata: Map({
+              isFetching: isFetching,
+            }),
+          });
       } else {
         return state.set('error', 'There was an error.').mergeDeep({
           _metadata: Map({
@@ -68,9 +75,18 @@ export default handleActions(
             (Math.random() * 0xffffff) <<
             0
           ).toString(16)}`;
+          localStorage.setItem(
+            'hanen-colours',
+            JSON.stringify(categoryColours)
+          );
         }
+        const allArticles = state.get('articles').push(Map(article));
+        localStorage.setItem(
+          'hanen-articles',
+          JSON.stringify({ data: allArticles })
+        );
         return state
-          .set('articles', state.get('articles').push(Map(article)))
+          .set('articles', allArticles)
           .set('categoryColours', Map(categoryColours));
       } else {
         return state;
@@ -90,10 +106,11 @@ export default handleActions(
       });
     },
     [setFilters](state, { payload }) {
-      console.log('setFilters:', payload);
+      localStorage.setItem('hanen-filters', JSON.stringify(payload));
       return state.set('filters', Map(payload));
     },
     [clearFilters](state) {
+      localStorage.clear();
       return state.set(
         'filters',
         Map({

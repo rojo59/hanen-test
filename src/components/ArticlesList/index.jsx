@@ -21,7 +21,7 @@ export default class ArticlesList extends Component {
     return {
       articles: PropTypes.array.isRequired,
       categoryColours: PropTypes.object.isRequired,
-      error: PropTypes.object,
+      error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
       isFetching: PropTypes.bool.isRequired,
       dispatchGetArticles: PropTypes.func.isRequired,
     };
